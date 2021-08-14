@@ -28,6 +28,7 @@ class ListFragment : Fragment() , MoviesAdapter.RecyclerViewClickListener {
 
     private lateinit var factory : MovieFactory
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
