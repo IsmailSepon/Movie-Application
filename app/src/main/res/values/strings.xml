@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MayaTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="title_home">Movies</string>
+    <string name="title_dashboard">TV Show</string>
+    <string name="title_notifications">Search</string>
+</resources>
