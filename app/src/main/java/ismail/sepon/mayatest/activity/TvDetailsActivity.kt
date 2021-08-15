@@ -8,10 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import ismail.sepon.mayatest.R
 import ismail.sepon.mayatest.factory.TvDetailsFactory
-import ismail.sepon.mayatest.network.ApiService
-import ismail.sepon.mayatest.network.NetworkConnectionInterceptor
 import ismail.sepon.mayatest.pojo.TvResultsItem
-import ismail.sepon.mayatest.repository.MovieRepository
 import ismail.sepon.mayatest.viewmodel.TvDetailsViewModel
 import kotlinx.android.synthetic.main.activity_tv_details.*
 import org.kodein.di.KodeinAware
