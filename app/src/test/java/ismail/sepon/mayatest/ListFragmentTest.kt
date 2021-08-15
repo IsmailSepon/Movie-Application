@@ -1,7 +1,9 @@
 package ismail.sepon.mayatest
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.bumptech.glide.load.engine.Resource
 import io.reactivex.Single
@@ -12,6 +14,8 @@ import ismail.sepon.mayatest.pojo.MovieResponse
 import ismail.sepon.mayatest.repository.MovieRepository
 import ismail.sepon.mayatest.viewmodel.ListViewModel
 import ismail.sepon.mayatest.viewmodel.TestCorotine
+import junit.framework.Assert.assertEquals
+import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
 import org.junit.Test
@@ -19,7 +23,6 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.doReturn
 import org.mockito.runners.MockitoJUnitRunner
 import retrofit2.Response.success
 import kotlin.Result.Companion.success
@@ -27,7 +30,10 @@ import org.mockito.MockitoAnnotations
 
 import org.junit.Before
 import org.junit.runner.manipulation.Ordering
-import org.mockito.Mockito.`when`
+import org.mockito.Mockito.*
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import retrofit2.Response
 import java.lang.Exception
 
 
@@ -35,22 +41,22 @@ import java.lang.Exception
  * Created by MD ISMAIL HOSSAIN SEPON on 15-Aug-21.
  * ismailhossainsepon@gmail.com
  */
-@ExperimentalCoroutinesApi
-@RunWith(JUnit4 :: class)
-class ListFragmentTest{
+@RunWith(JUnit4::class)
 
+class ListFragmentTest : TestCase() {
+
+    @ExperimentalCoroutinesApi
     @get:Rule
     var testCoroutineRule: TestCorotine = TestCorotine()
 
-    
     @Mock
-    private  var intercepter: NetworkConnectionInterceptor = NetworkConnectionInterceptor(getInstrumentation().context)
+    private lateinit  var intercepter: NetworkConnectionInterceptor //= NetworkConnectionInterceptor(context)
 
     @Mock
-    private  var apiHelper: ApiService = ApiService(intercepter)
+    private lateinit  var apiHelper: ApiService // = ApiService(intercepter)
 
     @Mock
-    private var repo: MovieRepository = MovieRepository(apiHelper)
+    private lateinit var repo: MovieRepository //= MovieRepository(apiHelper)
 
     @Mock
     private lateinit var apiUsersObserver: Observer<MovieResponse>
@@ -58,15 +64,18 @@ class ListFragmentTest{
 
 
     @Before
-    @Throws(Exception::class)
-    fun setUp() {
-
+    public override fun setUp() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        intercepter = NetworkConnectionInterceptor(context)
+        apiHelper = ApiService(intercepter)
+        repo = MovieRepository(apiHelper)
 
 
     }
 
 
 
+    @ExperimentalCoroutinesApi
     @Test
     fun givenServerResponse_whenFetch_Success() {
 
