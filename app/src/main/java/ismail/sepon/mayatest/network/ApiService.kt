@@ -17,7 +17,7 @@ import retrofit2.http.Query
 import retrofit2.http.Url
 
 /**
- * Created by MD ISMAIL HOSSAIN SEPON on 04-Jul-21.
+ * Created by MD ISMAIL HOSSAIN SEPON on 13-Aug-21.
  * ismailhossainsepon@gmail.com
  */
 interface ApiService {

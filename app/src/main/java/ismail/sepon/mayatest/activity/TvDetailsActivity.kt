@@ -13,13 +13,16 @@ import ismail.sepon.mayatest.network.NetworkConnectionInterceptor
 import ismail.sepon.mayatest.pojo.TvResultsItem
 import ismail.sepon.mayatest.repository.MovieRepository
 import ismail.sepon.mayatest.viewmodel.TvDetailsViewModel
-import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_tv_details.*
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class TvDetailsActivity : AppCompatActivity() {
+class TvDetailsActivity : AppCompatActivity()  , KodeinAware {
 
+    override val kodein by kodein()
     private lateinit var viewmodel: TvDetailsViewModel
-    private lateinit var factory : TvDetailsFactory
+    private  val factory : TvDetailsFactory by  instance()
 
     val imageBaseUrl : String = "https://image.tmdb.org/t/p/w500"
 
@@ -39,24 +42,28 @@ class TvDetailsActivity : AppCompatActivity() {
 
     private fun loadimage(tv: TvResultsItem?) {
 
-        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-        val api = ApiService(networkConnectionInterceptor)
-        val repository = MovieRepository(api)
+//        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
+//        val api = ApiService(networkConnectionInterceptor)
+//        val repository = MovieRepository(api)
+//        factory = TvDetailsFactory(repository)
+//+++++++++++++++++++++++Depedency Injection handle this
 
 
-        factory = TvDetailsFactory(repository)
         viewmodel = ViewModelProviders.of(this, factory).get(TvDetailsViewModel::class.java)
         viewmodel.getTvDetails("tv/"+tv?.id)
 
         viewmodel.tvDetails.observe(this, Observer {jobs ->
             Log.e("tv", jobs.overview.toString())
 
-            val imageUrl : String =  imageBaseUrl+ jobs?.posterPath!!
-            Glide.with(this)
-                .load(imageUrl)
-                .into(tv_details_image);
-            tv_details.text = jobs.overview
-            tv_title_txt.text = jobs.originalName
+            if (jobs?.posterPath != null){
+                val imageUrl : String =  imageBaseUrl+ jobs?.posterPath!!
+                Glide.with(this)
+                    .load(imageUrl)
+                    .into(tv_details_image);
+                tv_details.text = jobs.overview
+                tv_title_txt.text = jobs.originalName
+
+            }
 
 
         })

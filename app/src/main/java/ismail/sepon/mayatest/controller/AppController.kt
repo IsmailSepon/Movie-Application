@@ -1,11 +1,15 @@
 package ismail.sepon.mayatest.controller
 
 import android.app.Application
+import ismail.sepon.mayatest.factory.MovieDetailsFactory
 import ismail.sepon.mayatest.factory.MovieFactory
+import ismail.sepon.mayatest.factory.TvDetailsFactory
 import ismail.sepon.mayatest.network.ApiService
 import ismail.sepon.mayatest.network.NetworkConnectionInterceptor
 import ismail.sepon.mayatest.repository.MovieRepository
+import ismail.sepon.mayatest.viewmodel.DetailsViewModel
 import ismail.sepon.mayatest.viewmodel.ListViewModel
+import ismail.sepon.mayatest.viewmodel.TvDetailsViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -29,12 +33,19 @@ class AppController: Application(), KodeinAware {
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { ApiService(instance()) }
         bind() from singleton { MovieRepository(instance()) }
+
+
         bind() from provider { MovieFactory(instance()) }
         bind() from provider { ListViewModel(instance()) }
 
 
-//        bind() from provider { DoodleViewModelFactory(instance()) }
-//        bind() from provider { DoodleViewModel(instance()) }
+
+        bind() from provider { MovieDetailsFactory(instance()) }
+        bind() from provider { DetailsViewModel(instance()) }
+
+
+        bind() from provider { TvDetailsFactory(instance()) }
+        bind() from provider { TvDetailsViewModel(instance()) }
 
 
     }
