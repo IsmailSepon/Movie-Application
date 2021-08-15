@@ -78,7 +78,7 @@ class ListFragment : Fragment() , MoviesAdapter.RecyclerViewClickListener {
         val b = Bundle()
         b.putSerializable("movie", movie)
         intent.putExtras(b) //pass bundle to your intent
-        intent.putExtra("type", 1)
+//        intent.putExtra("type", 1)
         startActivity(intent)
 
     }

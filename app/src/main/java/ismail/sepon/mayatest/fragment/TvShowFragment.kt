@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import ismail.sepon.mayatest.R
 import ismail.sepon.mayatest.activity.DetailsActivity
+import ismail.sepon.mayatest.activity.TvDetailsActivity
 import ismail.sepon.mayatest.adapter.TvShowAdapter
 import ismail.sepon.mayatest.base.ProgressDialogFrament
 import ismail.sepon.mayatest.factory.TvShowFactory
@@ -81,11 +82,10 @@ class TvShowFragment : Fragment() , TvShowAdapter.TvRecyclerViewClickListener {
 
     override fun onRecyclerViewItemClick(view: View, movie: TvResultsItem) {
 
-        val intent = Intent(requireContext(), DetailsActivity::class.java)
+        val intent = Intent(requireContext(), TvDetailsActivity::class.java)
         val b = Bundle()
         b.putSerializable("tv", movie)
         intent.putExtras(b) //pass bundle to your intent
-        intent.putExtra("type", 2)
         startActivity(intent)
     }
 

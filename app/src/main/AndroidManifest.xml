@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MayaTest">
         <activity
+            android:name=".activity.TvDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.DetailsActivity"
             android:exported="true" />
         <activity
@@ -27,7 +30,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
