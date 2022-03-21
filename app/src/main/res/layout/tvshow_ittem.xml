@@ -7,7 +7,7 @@
         <import type="android.view.View" />
         <variable
             name="movie"
-            type="ismail.sepon.mayatest.pojo.TvResultsItem" />
+            type="ismail.sepon.katex.pojo.TvResultsItem" />
     </data>
 
     <LinearLayout

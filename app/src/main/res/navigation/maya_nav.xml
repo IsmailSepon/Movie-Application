@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="ismail.sepon.mayatest.ListFragment"
+        android:name="ismail.sepon.katex.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="ismail.sepon.mayatest.DetailsFragment"
+        android:name="ismail.sepon.katex.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <action
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="ismail.sepon.mayatest.MoviesFragment"
+        android:name="ismail.sepon.katex.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" >
         <action

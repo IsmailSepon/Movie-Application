@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ismail.sepon.mayatest">
+    package="ismail.sepon.katex">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".controller.AppController"
+        android:name="ismail.sepon.katex.controller.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,13 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MayaTest">
         <activity
-            android:name=".activity.TvDetailsActivity"
+            android:name="ismail.sepon.katex.activity.TvDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.DetailsActivity"
+            android:name="ismail.sepon.katex.activity.DetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.LandingActivity"
+            android:name="ismail.sepon.katex.activity.LandingActivity"
             android:exported="true"
             android:label="@string/title_activity_landing">
             <intent-filter>
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="ismail.sepon.katex.MainActivity"
             android:exported="true" />
     </application>
 

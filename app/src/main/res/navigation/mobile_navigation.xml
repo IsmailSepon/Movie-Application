@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="ismail.sepon.mayatest.ListFragment"
+        android:name="ismail.sepon.katex.ListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="ismail.sepon.mayatest.fragment.TvShowFragment"
+        android:name="ismail.sepon.katex.fragment.TvShowFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/tvshow_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="ismail.sepon.mayatest.fragment.SearchFragment"
+        android:name="ismail.sepon.katex.fragment.SearchFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/search_fragment" />
 </navigation>
